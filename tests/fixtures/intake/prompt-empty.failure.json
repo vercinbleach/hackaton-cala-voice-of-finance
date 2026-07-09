@@ -1,0 +1,15 @@
+{
+  "prompt": "   ",
+  "references": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "styleId": "finance-reel-v0",
+  "duration": {
+    "target": 30,
+    "min": 15,
+    "max": 45
+  }
+}

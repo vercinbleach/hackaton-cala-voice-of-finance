@@ -1,75 +1,50 @@
 # Work Split
 
-## Persona 1: Editorial / referencias
+## Owner
+
+- Elegir formato inicial: `9:16` recomendado para la demo.
+- Aprobar una voz y una referencia visual principal.
+- Aprobar el primer brief top movers.
+
+## Persona 1: estilo y referencias
 
 No tecnico.
 
-Tareas:
+- Seleccionar 5 videos de referencia.
+- Marcar timestamps: hook, grafico, caption, corte y cierre.
+- Entregar colores, tipografia, ritmo y ejemplos buenos/malos.
+- Redactar el contenido inicial de la skill `finance-news`.
 
-- Crear 10 briefs top movers.
-- Juntar referencias visuales.
-- Definir estilo deseado.
-- Revisar hooks.
-- Revisar captions.
-- Marcar ejemplos buenos/malos.
+Entrega: un pack de referencias suficientemente preciso para reproducir el
+estilo sin copiar una marca.
 
-Output:
-
-- briefs en texto.
-- links/capturas.
-- feedback editorial.
-
-## Persona 2: QA / producto
+## Persona 2: contenido y voz
 
 No tecnico.
 
-Tareas:
+- Probar 3 voces ElevenLabs y elegir 2 finalistas.
+- Preparar 5 prompts reales de top movers.
+- Comprobar ticker, porcentaje, catalizador y fuente.
+- Revisar guion y pronunciacion antes de render.
 
-- Probar la web.
-- Revisar si el flujo se entiende.
-- Probar voces ElevenLabs.
-- Puntuar demos.
-- Detectar claims sin fuente.
-- Revisar si parece video financiero real.
-
-Output:
-
-- feedback con formato:
-
-```text
-Pantalla/demo:
-Problema:
-Por que importa:
-Sugerencia:
-```
+Entrega: prompts de prueba + tabla de voz + correcciones factuales.
 
 ## Dev / Codex
 
-Tareas:
-
-- Conectar pipeline real.
-- Generar `edit.json`.
-- Integrar ElevenLabs.
-- Integrar Cala/mock data.
-- Render HyperFrames.
-- Export FFmpeg.
-- Automatizar tests.
-
-## Usuario owner
-
-Decisiones:
-
-- Estilo final.
-- Voz por defecto.
-- Formato 16:9 o 9:16.
-- Fuente de data principal.
-- Criterio de calidad.
+- Instalar FFmpeg/FFprobe y cerrar `hyperframes doctor`.
+- Crear storage local y contratos JSON.
+- Implementar orquestador Bun.
+- Integrar Cala, ElevenLabs y Codex CLI.
+- Implementar style pack + `edit.json` + HyperFrames.
+- Conectar Vite al estado y al MP4 final.
 
 ## Primer sprint
 
-1. UI clara.
-2. Mock data top movers.
-3. `edit.json` demo.
-4. Voz ElevenLabs demo.
-5. Render MP4 demo.
-6. QA con colaboradores.
+1. Un brief fijo genera research real de Cala.
+2. El guion genera voz real de ElevenLabs.
+3. Dos charts y un asset de referencia entran por `assetId`.
+4. HyperFrames genera un video vertical de 30-45 segundos.
+5. La web reproduce el MP4 generado, sin preview hardcodeado.
+
+Definition of done: un comando local y el boton web producen el mismo
+`renders/output.mp4` desde una carpeta vacia de proyecto.

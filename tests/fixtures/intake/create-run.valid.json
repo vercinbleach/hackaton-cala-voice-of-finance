@@ -1,0 +1,29 @@
+{
+  "prompt": "Crea un reel financiero de 30 segundos con dos top movers de la sesion, su catalizador y un cierre sobre que vigilar manana.",
+  "references": [
+    {
+      "id": "ref-url-001",
+      "kind": "url",
+      "value": "https://example.test/reference/finance-reel"
+    },
+    {
+      "id": "ref-upload-001",
+      "kind": "upload",
+      "value": "uploads/market-board.png",
+      "filename": "market-board.png",
+      "mimeType": "image/png",
+      "size": 248137
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "styleId": "finance-reel-v0",
+  "duration": {
+    "target": 30,
+    "min": 15,
+    "max": 45
+  }
+}

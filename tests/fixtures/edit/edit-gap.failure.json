@@ -1,0 +1,56 @@
+{
+  "styleId": "finance-reel-v0",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "duration": 30,
+  "audio": "voiceover.mp3",
+  "scenes": [
+    {
+      "id": "scene-hook",
+      "kind": "hook",
+      "start": 0,
+      "end": 4.8,
+      "title": "Dos acciones, dos direcciones",
+      "caption": "Los movimientos que marcaron el cierre",
+      "assetIds": ["asset-market-grid"],
+      "sourceIds": []
+    },
+    {
+      "id": "scene-nvda",
+      "kind": "mover",
+      "start": 4.8,
+      "end": 14.6,
+      "title": "NVIDIA acelera",
+      "caption": "+4,8% tras elevar su prevision anual",
+      "ticker": "NVDA",
+      "changePct": 4.8,
+      "catalyst": "La compania elevo su prevision anual de ingresos.",
+      "assetIds": ["asset-chart-nvda"],
+      "sourceIds": ["src-nvda-market", "src-nvda-release"]
+    },
+    {
+      "id": "scene-tsla",
+      "kind": "mover",
+      "start": 15.6,
+      "end": 25.2,
+      "title": "Tesla pierde traccion",
+      "caption": "-3,2% por presion en el margen",
+      "ticker": "TSLA",
+      "changePct": -3.2,
+      "catalyst": "El mercado reacciono a una contraccion del margen automotriz.",
+      "assetIds": ["asset-chart-tsla"],
+      "sourceIds": ["src-tsla-market", "src-tsla-filing"]
+    },
+    {
+      "id": "scene-closing",
+      "kind": "closing",
+      "start": 25.2,
+      "end": 30,
+      "title": "Que vigilar manana",
+      "caption": "Volumen de apertura y nuevas comunicaciones",
+      "assetIds": ["asset-closing-watchlist"],
+      "sourceIds": []
+    }
+  ]
+}

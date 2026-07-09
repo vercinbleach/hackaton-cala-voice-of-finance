@@ -1,10 +1,10 @@
-# Autovideopipelinegeneration
+# Editify
 
 ## Objetivo
 
 Crear un agente que genere videos faceless estilo YouTube desde un brief, usando datos financieros de Cala, voz de ElevenLabs y render con HyperFrames.
 
-Core del producto: edicion automatica.
+Core del producto: agente editor alrededor de HyperFrames CLI.
 
 El valor principal no es solo generar guion o voz, sino decidir y ejecutar montaje:
 
@@ -17,6 +17,7 @@ El valor principal no es solo generar guion o voz, sino decidir y ejecutar monta
 - Graficos.
 - Transiciones.
 - Sincronizacion voz/visual.
+- Lint/inspect/render con HyperFrames CLI.
 
 Regla de trabajo: ver `rules.md`. Solo notas high-signal.
 
@@ -98,8 +99,8 @@ Faceless YouTube financiero:
 - `voiceover.mp3`: voz ElevenLabs.
 - `alignment.json`: timestamps.
 - `edit.json`: plan de edicion.
-- `composition.html`: fuente HyperFrames.
-- `output.mp4`: video final.
+- `hyperframes/index.html`: fuente HyperFrames.
+- `renders/output.mp4`: video final.
 - `sources.md`: fuentes usadas.
 
 ## Data visual financiera
@@ -112,15 +113,12 @@ Faceless YouTube financiero:
 
 ## Skills
 
-- `brief-parser`
+- `finance-news-style`
 - `cala-research`
 - `finance-scriptwriter`
-- `voiceover-elevenlabs`
-- `scene-planner`
-- `visual-planner`
-- `hyperframes-render`
-- `ffmpeg-postprocess`
-- `qa-finance-video`
+- `hyperframes-editor`
+
+ElevenLabs, assets y render son workers deterministas, no agentes separados.
 
 ## Primer MVP
 

@@ -1,0 +1,24 @@
+{
+  "title": "Dos movimientos que marcaron Wall Street",
+  "language": "es",
+  "narration": "Dos acciones concentraron la atencion del cierre. NVIDIA avanzo un 9,8 por ciento por un contrato que no aparece en las fuentes. Tesla cedio un 3,2 por ciento tras una contraccion del margen automotriz. Manana, el foco estara en confirmar los catalizadores antes de la apertura.",
+  "movers": [
+    {
+      "ticker": "NVDA",
+      "company": "NVIDIA",
+      "direction": "up",
+      "changePct": 9.8,
+      "catalyst": "La compania anuncio un contrato publico no incluido en research.",
+      "sourceIds": ["src-invented-contract"]
+    },
+    {
+      "ticker": "TSLA",
+      "company": "Tesla",
+      "direction": "down",
+      "changePct": -3.2,
+      "catalyst": "El mercado reacciono a una contraccion del margen automotriz.",
+      "sourceIds": ["src-tsla-market", "src-tsla-filing"]
+    }
+  ],
+  "closing": "Confirma cada dato con su fuente antes de publicar. Esto no es asesoramiento financiero."
+}

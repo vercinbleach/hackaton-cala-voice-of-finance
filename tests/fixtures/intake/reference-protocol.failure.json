@@ -1,0 +1,21 @@
+{
+  "prompt": "Crea un reel financiero con una referencia externa.",
+  "references": [
+    {
+      "id": "ref-url-invalid",
+      "kind": "url",
+      "value": "file:///C:/private/reference.html"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "styleId": "finance-reel-v0",
+  "duration": {
+    "target": 30,
+    "min": 15,
+    "max": 45
+  }
+}

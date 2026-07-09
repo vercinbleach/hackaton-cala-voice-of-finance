@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["styleId", "width", "height", "fps", "duration", "audio", "scenes"],
+  "properties": {
+    "styleId": { "const": "finance-reel-v0" },
+    "width": { "const": 1080 },
+    "height": { "const": 1920 },
+    "fps": { "const": 30 },
+    "duration": { "type": "number", "minimum": 15, "maximum": 45 },
+    "audio": { "type": "string", "minLength": 1 },
+    "scenes": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "start", "end", "title", "caption", "assetIds", "sourceIds"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["hook", "mover", "closing"] },
+          "start": { "type": "number", "minimum": 0 },
+          "end": { "type": "number", "exclusiveMinimum": 0 },
+          "title": { "type": "string", "minLength": 1 },
+          "caption": { "type": "string", "minLength": 1 },
+          "ticker": { "type": "string" },
+          "changePct": { "type": "number" },
+          "catalyst": { "type": "string" },
+          "assetIds": { "type": "array", "items": { "type": "string" } },
+          "sourceIds": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

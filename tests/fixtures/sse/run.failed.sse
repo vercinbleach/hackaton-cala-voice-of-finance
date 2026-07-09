@@ -1,0 +1,12 @@
+id: 1
+event: run-event
+data: {"id":1,"runId":"run_fixture_failed_001","stage":"intake","status":"running","message":"Normalizando brief y referencias","progress":5,"timestamp":"2026-07-08T21:00:00.000Z"}
+
+id: 2
+event: run-event
+data: {"id":2,"runId":"run_fixture_failed_001","stage":"research","status":"completed","message":"Research grounded en cuatro fuentes","progress":25,"timestamp":"2026-07-08T21:00:08.000Z"}
+
+id: 3
+event: run-event
+data: {"id":3,"runId":"run_fixture_failed_001","stage":"script","status":"failed","message":"El guion contiene una afirmacion sin fuente","progress":35,"timestamp":"2026-07-08T21:00:12.000Z","check":{"id":"script-grounding","label":"Guion grounded","stage":"script","status":"failed","detail":"sourceIds contiene src-invented-contract","measuredAt":"2026-07-08T21:00:12.000Z"}}
+

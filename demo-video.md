@@ -16,8 +16,8 @@ Las acciones que mas subieron y bajaron hoy.
 
 ## Formato
 
-- 16:9 para YouTube.
-- Variante futura: 9:16 para Instagram/Reels/Shorts.
+- Target demo: 9:16 para Instagram/Reels/Shorts.
+- Variante futura: 16:9 para YouTube.
 
 ## Estructura
 
@@ -99,6 +99,6 @@ Visual:
 - `script.md`
 - `voiceover.mp3`
 - `edit.json`
-- `composition.html`
-- `output.mp4`
+- `hyperframes/index.html`
+- `renders/output.mp4`
 - `sources.md`

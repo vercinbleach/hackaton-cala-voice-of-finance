@@ -1,0 +1,23 @@
+{
+  "streams": [
+    {
+      "index": 0,
+      "codec_name": "mp3",
+      "codec_type": "audio",
+      "sample_rate": "44100",
+      "channels": 1,
+      "channel_layout": "mono",
+      "duration": "30.014694"
+    }
+  ],
+  "format": {
+    "filename": "voiceover.mp3",
+    "nb_streams": 1,
+    "format_name": "mp3",
+    "start_time": "0.025057",
+    "duration": "30.014694",
+    "size": "480861",
+    "bit_rate": "128164",
+    "probe_score": 51
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "detail": {
+    "status": "quota_exceeded",
+    "message": "This request exceeds the remaining character quota for the provider account."
+  }
+}

@@ -10,7 +10,7 @@ Prompt/skill -> voz + graficas + animaciones -> MP4.
 - Mock top movers.
 - `script.md` generado.
 - `edit.json` generado.
-- Preview lee `edit.json`.
+- Preview muestra artefactos; no simula el render final.
 
 ## Slice 2: voz
 
@@ -26,8 +26,8 @@ Prompt/skill -> voz + graficas + animaciones -> MP4.
 
 ## Slice 4: render
 
-- HyperFrames lee `edit.json`.
-- Renderiza `composition.html`.
+- El agente convierte `edit.json` en `hyperframes/index.html`.
+- HyperFrames valida y renderiza `raw.mp4`.
 - FFmpeg exporta `output.mp4`.
 
 ## Slice 5: QA

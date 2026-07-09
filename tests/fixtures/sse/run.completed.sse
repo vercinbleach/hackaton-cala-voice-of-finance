@@ -1,0 +1,28 @@
+id: 1
+event: run-event
+data: {"id":1,"runId":"run_fixture_001","stage":"intake","status":"running","message":"Normalizando brief y referencias","progress":5,"timestamp":"2026-07-08T20:00:00.000Z"}
+
+id: 2
+event: run-event
+data: {"id":2,"runId":"run_fixture_001","stage":"research","status":"completed","message":"Research grounded en cuatro fuentes","progress":25,"timestamp":"2026-07-08T20:00:08.000Z","artifact":{"id":"artifact-research-001","kind":"research","label":"Research Cala","stage":"research","relativePath":"research.json","mimeType":"application/json","source":"cala","createdAt":"2026-07-08T20:00:08.000Z"}}
+
+id: 3
+event: run-event
+data: {"id":3,"runId":"run_fixture_001","stage":"script","status":"completed","message":"Guion validado contra fuentes","progress":42,"timestamp":"2026-07-08T20:00:14.000Z","artifact":{"id":"artifact-script-001","kind":"script","label":"Guion","stage":"script","relativePath":"script.json","mimeType":"application/json","source":"codex","createdAt":"2026-07-08T20:00:14.000Z"}}
+
+id: 4
+event: run-event
+data: {"id":4,"runId":"run_fixture_001","stage":"voice","status":"completed","message":"Voz y alignment disponibles","progress":60,"timestamp":"2026-07-08T20:00:22.000Z","artifact":{"id":"artifact-alignment-001","kind":"alignment","label":"Alignment ElevenLabs","stage":"voice","relativePath":"alignment.json","mimeType":"application/json","source":"elevenlabs","createdAt":"2026-07-08T20:00:22.000Z"}}
+
+id: 5
+event: run-event
+data: {"id":5,"runId":"run_fixture_001","stage":"edit","status":"completed","message":"Timeline continua y grounded","progress":76,"timestamp":"2026-07-08T20:00:28.000Z","artifact":{"id":"artifact-edit-001","kind":"edit","label":"Plan de edicion","stage":"edit","relativePath":"edit.json","mimeType":"application/json","source":"codex","createdAt":"2026-07-08T20:00:28.000Z"}}
+
+id: 6
+event: run-event
+data: {"id":6,"runId":"run_fixture_001","stage":"render","status":"testing","message":"Validando render con ffprobe","progress":92,"timestamp":"2026-07-08T20:00:48.000Z","check":{"id":"render-layout","label":"Layout y motion","stage":"render","status":"passed","detail":"HyperFrames lint e inspect completados","measuredAt":"2026-07-08T20:00:48.000Z"}}
+
+id: 7
+event: run-event
+data: {"id":7,"runId":"run_fixture_001","stage":"complete","status":"completed","message":"MP4 listo","progress":100,"timestamp":"2026-07-08T20:00:52.000Z","artifact":{"id":"artifact-video-001","kind":"video","label":"Reel final","stage":"complete","relativePath":"renders/output.mp4","mimeType":"video/mp4","source":"ffmpeg","createdAt":"2026-07-08T20:00:52.000Z"},"check":{"id":"video-output","label":"MP4 1080x1920","stage":"complete","status":"passed","detail":"30s, H.264, AAC, 1080x1920, 30fps","measuredAt":"2026-07-08T20:00:52.000Z"}}
+

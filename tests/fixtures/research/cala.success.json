@@ -1,0 +1,66 @@
+{
+  "provider": "cala",
+  "requestId": "cala_req_fixture_01",
+  "asOf": "2026-07-08T20:05:00.000Z",
+  "market": "US",
+  "marketSession": "regular",
+  "query": "top movers with attributable catalysts",
+  "movers": [
+    {
+      "ticker": "NVDA",
+      "company": "NVIDIA",
+      "direction": "up",
+      "changePct": 4.8,
+      "lastPrice": 171.32,
+      "previousClose": 163.47,
+      "currency": "USD",
+      "catalyst": "La compania elevo su prevision anual de ingresos.",
+      "sourceIds": ["src-nvda-market", "src-nvda-release"]
+    },
+    {
+      "ticker": "TSLA",
+      "company": "Tesla",
+      "direction": "down",
+      "changePct": -3.2,
+      "lastPrice": 284.1,
+      "previousClose": 293.49,
+      "currency": "USD",
+      "catalyst": "El mercado reacciono a una contraccion del margen automotriz.",
+      "sourceIds": ["src-tsla-market", "src-tsla-filing"]
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-nvda-market",
+      "publisher": "Example Market Data",
+      "title": "NVDA regular-session close",
+      "url": "https://example.test/markets/nvda/2026-07-08",
+      "publishedAt": "2026-07-08T20:01:00.000Z",
+      "retrievedAt": "2026-07-08T20:05:00.000Z"
+    },
+    {
+      "id": "src-nvda-release",
+      "publisher": "Example Investor Relations",
+      "title": "Annual outlook update",
+      "url": "https://example.test/ir/nvda/outlook-update",
+      "publishedAt": "2026-07-08T12:30:00.000Z",
+      "retrievedAt": "2026-07-08T20:05:00.000Z"
+    },
+    {
+      "id": "src-tsla-market",
+      "publisher": "Example Market Data",
+      "title": "TSLA regular-session close",
+      "url": "https://example.test/markets/tsla/2026-07-08",
+      "publishedAt": "2026-07-08T20:01:00.000Z",
+      "retrievedAt": "2026-07-08T20:05:00.000Z"
+    },
+    {
+      "id": "src-tsla-filing",
+      "publisher": "Example Filings",
+      "title": "Quarterly automotive margin update",
+      "url": "https://example.test/filings/tsla/quarterly-update",
+      "publishedAt": "2026-07-08T11:00:00.000Z",
+      "retrievedAt": "2026-07-08T20:05:00.000Z"
+    }
+  ]
+}

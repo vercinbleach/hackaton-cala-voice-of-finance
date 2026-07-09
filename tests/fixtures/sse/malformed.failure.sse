@@ -1,0 +1,4 @@
+id: 17
+event: run-event
+data: {"id":17,"runId":"run_fixture_malformed","stage":"render","status":"failed","message":"JSON truncado"
+

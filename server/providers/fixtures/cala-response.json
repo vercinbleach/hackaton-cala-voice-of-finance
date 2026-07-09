@@ -1,0 +1,122 @@
+{
+  "results": [
+    {
+      "ticker": "NVDA",
+      "company": "NVIDIA",
+      "direction": "up",
+      "change_pct": "+5.4%",
+      "catalyst": "Raised its quarterly revenue outlook.",
+      "source_id": "ctx-nvda-copy"
+    },
+    {
+      "ticker": "AAPL",
+      "company": "Apple",
+      "direction": "gainer",
+      "change_pct": 3.1,
+      "catalyst": "Services growth beat expectations.",
+      "source_id": "ctx-apple"
+    },
+    {
+      "ticker": "MSFT",
+      "company": "Microsoft",
+      "direction": "up",
+      "change_pct": 2.2,
+      "catalyst": "Cloud bookings accelerated.",
+      "source_id": "ctx-cloud"
+    },
+    {
+      "ticker": "TSLA",
+      "company": "Tesla",
+      "direction": "down",
+      "change_pct": -6.2,
+      "catalyst": "Vehicle deliveries missed consensus.",
+      "source_id": "ctx-tesla"
+    },
+    {
+      "ticker": "AMD",
+      "company": "AMD",
+      "direction": "decliner",
+      "change_pct": "4.8%",
+      "catalyst": "Guidance implied slower data-center growth.",
+      "source_url": "https://news.example.com/cloud-results?utm_campaign=daily",
+      "source_title": "Cloud earnings roundup",
+      "publisher": "Example News"
+    },
+    {
+      "ticker": "GME",
+      "company": "GameStop",
+      "direction": "down",
+      "change_pct": -2,
+      "catalyst": "No valid provenance.",
+      "source_url": "javascript:alert(1)"
+    }
+  ],
+  "context": [
+    {
+      "id": "ctx-nvda",
+      "content": "NVIDIA raised its outlook.",
+      "origins": [
+        {
+          "source": { "name": "Market Wire", "url": "https://market.example.com" },
+          "document": {
+            "name": "NVIDIA outlook",
+            "url": "https://news.example.com/nvidia-outlook?utm_source=cala"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ctx-nvda-copy",
+      "content": "Duplicate NVIDIA source.",
+      "origins": [
+        {
+          "source": { "name": "Market Wire", "url": "https://market.example.com" },
+          "document": {
+            "name": "NVIDIA outlook duplicate",
+            "url": "https://news.example.com/nvidia-outlook"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ctx-apple",
+      "content": "Apple services beat expectations.",
+      "origins": [
+        {
+          "source": { "name": "Daily Exchange" },
+          "document": {
+            "name": "Apple earnings",
+            "url": "https://news.example.com/apple-earnings"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ctx-tesla",
+      "content": "Tesla deliveries missed consensus.",
+      "origins": [
+        {
+          "source": { "name": "Filings Desk" },
+          "document": {
+            "name": "Tesla deliveries",
+            "url": "https://news.example.com/tesla-deliveries"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ctx-cloud",
+      "content": "Cloud earnings roundup.",
+      "origins": [
+        {
+          "source": { "name": "Example News" },
+          "document": {
+            "name": "Cloud earnings roundup",
+            "url": "https://news.example.com/cloud-results"
+          }
+        }
+      ]
+    }
+  ],
+  "entities": []
+}

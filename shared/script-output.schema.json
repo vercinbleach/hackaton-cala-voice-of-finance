@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title", "language", "narration", "movers", "closing"],
+  "properties": {
+    "title": { "type": "string", "minLength": 1, "maxLength": 90 },
+    "language": { "type": "string", "const": "es" },
+    "narration": { "type": "string", "minLength": 120, "maxLength": 900 },
+    "closing": { "type": "string", "minLength": 1, "maxLength": 180 },
+    "movers": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ticker", "company", "direction", "changePct", "catalyst", "sourceIds"],
+        "properties": {
+          "ticker": { "type": "string", "minLength": 1, "maxLength": 10 },
+          "company": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "direction": { "type": "string", "enum": ["up", "down"] },
+          "changePct": { "type": "number" },
+          "catalyst": { "type": "string", "minLength": 1, "maxLength": 180 },
+          "sourceIds": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    }
+  }
+}

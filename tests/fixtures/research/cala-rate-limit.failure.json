@@ -1,0 +1,11 @@
+{
+  "error": {
+    "provider": "cala",
+    "code": "RATE_LIMITED",
+    "message": "The provider rate limit was reached for this request.",
+    "httpStatus": 429,
+    "retryable": true,
+    "retryAfterMs": 30000,
+    "requestId": "cala_req_fixture_rate_limit"
+  }
+}

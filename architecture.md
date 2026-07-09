@@ -1,170 +1,124 @@
 # Architecture
 
-## Web
+## Decision MVP
 
-App interna para operar la pipeline.
+Pipeline local, CLI-first y ligera.
 
-Entrada principal:
+- Vite: recoge prompt, referencias, uploads, estilo, voz y formato.
+- Bun/TypeScript: API local + orquestador.
+- Codex CLI: agentes de research, guion y edicion.
+- Cala y ElevenLabs: APIs externas.
+- HyperFrames CLI + FFmpeg: composicion y MP4.
 
-- Tematica.
-- Referencias.
-- Skill de estilo.
-- Formato.
-- Voz.
+No necesitamos colas, base de datos ni microservicios para la demo.
 
-Pantallas:
+## Modelo multiagente
 
-- Nuevo video.
-- Research.
-- Guion.
-- Escenas/timeline.
-- Assets.
-- Preview.
-- Renders.
+Los agentes no conversan entre ellos. Intercambian archivos por `projectId`;
+el orquestador controla dependencias, reintentos y estado.
 
-## Backend
+- `research-agent`: consulta Cala y conserva fuentes.
+- `script-agent`: convierte research + brief en guion.
+- `editor-agent`: aplica la skill de estilo y crea `edit.json` + HyperFrames.
+- `asset-worker`: ingesta, OCR/analisis y genera charts.
+- `voice-worker`: genera voz y alignment con ElevenLabs.
+- `render-worker`: ejecuta HyperFrames y FFmpeg.
 
-API propia.
+Solo los tres primeros necesitan razonamiento. Los workers deben ser
+deterministas.
 
-Responsabilidades:
-
-- Crear `projectId`.
-- Guardar brief/assets.
-- Lanzar jobs.
-- Llamar APIs externas.
-- Exponer estado a la web.
-- Servir previews y outputs.
-
-## GPT/Codex demo
-
-Para la demo, GPT opera via terminales Codex locales con la sesion del usuario.
-
-Uso:
-
-- Codex lee brief, referencias y artefactos.
-- Codex ejecuta comandos locales.
-- Codex genera/edita `research.json`, `script.md`, `edit.json` y `composition.html`.
-- La web muestra artefactos y estados.
-
-No tratar GPT como API externa en la demo.
-
-## ElevenLabs demo
-
-Env:
-
-- `ELEVENLABS_API_KEY`
-- `ELEVENLABS_VOICE_ID`
-
-Uso:
-
-- Generar `voiceover.mp3`.
-- Guardar audio en carpeta del `projectId`.
-- Usar timestamps/alignment si el endpoint elegido lo permite.
-- FFmpeg queda como dependencia local para media.
-
-## Workers
-
-Jobs por etapa:
-
-- `research`: Cala.
-- `script`: GPT.
-- `voice`: ElevenLabs.
-- `assets`: charts/stock/generacion.
-- `edit`: crea `edit.json`.
-- `render`: HyperFrames.
-- `postprocess`: FFmpeg.
-- `qa`: checks finales.
-
-## Storage
-
-Local en MVP. Cloud despues.
+## Flujo
 
 ```text
+prompt + referencias + uploads
+-> crear projectId y normalizar brief
+-> [Cala research || ingesta/analisis de referencias]
+-> guion
+-> [voz ElevenLabs || charts/assets visuales]
+-> edit.json
+-> HyperFrames index.html
+-> lint + inspect + snapshot + render
+-> FFmpeg final
+-> output.mp4 en la web
+```
+
+Paralelo:
+
+- Cala y analisis de referencias.
+- Voz y generacion de assets, despues del guion.
+
+Secuencial:
+
+- Guion espera research.
+- Edicion espera voz, alignment y assets.
+- Render espera `edit.json` e `index.html`.
+
+## Skill vs edit vs render
+
+```text
+style skill = reglas reutilizables
+edit.json   = decisiones para este video
+index.html  = implementacion renderizable
+output.mp4  = resultado
+```
+
+HyperFrames no lee `edit.json` directamente. El `editor-agent` lo transforma
+en codigo HyperFrames.
+
+```text
+styles/{styleId}/
+  SKILL.md
+  style.json
+  template/
+  references/
+```
+
+## Storage local
+
+```text
+asset-library/
+  originals/{sha256}.{ext}
+  generated/
+  manifest.json
+
 projects/{projectId}/
+  run.json
   brief.json
+  references.json
   research.json
+  sources.md
   script.md
+  asset-manifest.json
+  assets/
   voiceover.mp3
   alignment.json
   edit.json
-  assets/
-  composition.html
-  output.mp4
-  sources.md
+  hyperframes/index.html
+  renders/raw.mp4
+  renders/output.mp4
 ```
 
-## Recursos
+`asset-library` es el repositorio comun local. Git guarda codigo, skills y
+fixtures pequenos; no uploads ni renders. En cloud se sustituye por S3/R2 sin
+cambiar los `assetId`.
 
-Todo recurso se referencia por `assetId`, no por texto libre.
+## API local minima
 
-```json
-{
-  "assetId": "chart_nvda_1d",
-  "type": "chart",
-  "path": "assets/chart_nvda_1d.png",
-  "source": "cala",
-  "metadata": {
-    "ticker": "NVDA",
-    "range": "1D"
-  }
-}
+- `POST /api/projects`: crea proyecto y guarda brief.
+- `POST /api/projects/:id/assets`: sube/registra assets.
+- `POST /api/projects/:id/run`: inicia o reanuda pipeline.
+- `GET /api/projects/:id`: estado y artefactos.
+- `GET /api/projects/:id/output`: devuelve el MP4.
+
+La web consulta `run.json`; SSE puede llegar despues.
+
+## Adapter de agente
+
+El orquestador usa un contrato comun:
+
+```ts
+runAgent({ role, skillPath, inputFiles, outputFile, schema })
 ```
 
-## `edit.json`
-
-Fuente de verdad de la edicion.
-
-```json
-{
-  "format": "16:9",
-  "duration": 58,
-  "scenes": [
-    {
-      "id": "s01",
-      "start": 0,
-      "duration": 5,
-      "voice": "Estas fueron las acciones que mas se movieron hoy.",
-      "visuals": ["market_bg", "ticker_strip"],
-      "effects": ["zoom_in", "caption_pop"]
-    }
-  ]
-}
-```
-
-## Render
-
-HyperFrames lee:
-
-- `edit.json`
-- assets
-- voiceover
-- alignment
-
-Genera:
-
-- `composition.html`
-- `raw.mp4`
-
-FFmpeg genera:
-
-- `output.mp4`
-
-## Local vs cloud
-
-MVP local:
-
-- Web local.
-- Backend local.
-- Storage local.
-- FFmpeg local.
-- HyperFrames local/API.
-- APIs externas: Cala, GPT, ElevenLabs.
-
-Produccion:
-
-- Storage S3/R2.
-- Queue.
-- Workers.
-- DB.
-- Renders aislados.
-- CDN para previews.
+Primero: Codex CLI local. Despues: adapter Claude CLI o AI SDK sin tocar la
+pipeline.
