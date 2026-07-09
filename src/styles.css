@@ -186,6 +186,7 @@ select:focus {
 
 .stage-panel {
   min-width: 0;
+  overflow: hidden;
 }
 
 .pipeline-strip {
@@ -232,12 +233,28 @@ select:focus {
 .video-preview {
   position: relative;
   overflow: hidden;
+  width: 100%;
+  max-width: 100%;
   aspect-ratio: 16 / 9;
   min-height: 300px;
   border: 1px solid var(--line);
   background:
     linear-gradient(90deg, rgba(72, 216, 117, 0.18), transparent 46%),
     linear-gradient(160deg, #161611, #050505);
+}
+
+.mock-badge {
+  position: absolute;
+  top: 52px;
+  right: 14px;
+  z-index: 2;
+  border: 1px solid rgba(216, 182, 74, 0.58);
+  background: rgba(13, 13, 11, 0.78);
+  color: var(--amber);
+  padding: 6px 8px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .market-ticker {

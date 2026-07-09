@@ -43,6 +43,10 @@ No subir `.env`.
 
 - `project.md`: decisiones clave.
 - `architecture.md`: pipeline.
+- `pipeline.md`: flujo MVP.
+- `demo-roadmap.md`: camino a demo real.
+- `test-plan.md`: como probar.
+- `work-split.md`: division de trabajo.
 - `demo-video.md`: demo top movers.
 - `collaborators.md`: tareas para colaboradores.
 - `ai-sdk.md`: nota AI SDK + Claude.

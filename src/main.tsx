@@ -138,11 +138,12 @@ function App() {
 
           <div className="preview-band">
             <div className="video-preview">
-              <div className="market-ticker">NVDA +4.8% · PLTR +3.9% · TSLA -3.2% · NFLX -2.7%</div>
+              <div className="mock-badge">Mock preview - no render real</div>
+              <div className="market-ticker">NVDA +4.8% / PLTR +3.9% / TSLA -3.2% / NFLX -2.7%</div>
               <div className="preview-copy">
                 <span>Top movers</span>
                 <strong>Las acciones que mas se movieron hoy</strong>
-                <p>Cala data → GPT script → ElevenLabs voice → HyperFrames render</p>
+                <p>Placeholder visual. El video real saldra de edit.json + HyperFrames + FFmpeg.</p>
               </div>
               <div className="chart-lines" aria-hidden="true">
                 <i />
